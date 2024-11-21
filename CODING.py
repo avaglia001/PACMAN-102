@@ -78,7 +78,7 @@ while running:
     
     if abs(pacman_x - ghost_x) < pacman_size and abs(pacman_y - ghost_y) < pacman_size:
         lives -= 1
-        ghost_x, ghost_y = random.randint(0, WIDTH), random.randint(0, HEIGHT)  # Reset ghost position
+        ghost_x, ghost_y = random.randint(0, WIDTH), random.randint(0, HEIGHT)  
         if lives == 0:
             print("Game Over!")
             running = False
@@ -89,8 +89,35 @@ while running:
     lives_text = font.render(f"Lives: {lives}", True, WHITE)
     screen.blit(score_text, (10, 10))
     screen.blit(lives_text, (10, 50))
+    game_map=[
+        #######......###...##...#..####
+        #....###...###........####.####
+        ##.####..###....###.###########
+        ##########......###############
+        #..#..#..#..#..#..#..#..#..#..#
+        ####..###......################
+        #.#.#.#.#.#.#.#.#.#.#.#.#.#.#.#
+        #####..#....###################
+        ]
+    def draw_walls(screen, game_map):
+    for y, row in enumerate(game_map):
+        for x, tile in enumerate(row):
+            if tile == '#':
+                pygame.draw.rect(screen, (0, 0, 255), pygame.Rect(x*30, y*30, 30, 30))
 
-    
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        screen.fill((0, 0, 0))
+        draw_walls(screen, game_map)
+        pygame.display.flip()
+
+pygame.quit()
+sys.exit()
+
     pygame.display.flip()
     clock.tick(30)
 
