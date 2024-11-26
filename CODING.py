@@ -100,10 +100,10 @@ while running:
         #####..#....###################
         ]
     def draw_walls(screen, game_map):
-    for y, row in enumerate(game_map):
-        for x, tile in enumerate(row):
-            if tile == '#':
-                pygame.draw.rect(screen, (0, 0, 255), pygame.Rect(x*30, y*30, 30, 30))
+        for y, row in enumerate(game_map):
+            for x, tile in enumerate(row):
+                if tile == '#':
+                    pygame.draw.rect(screen, (0, 0, 255), pygame.Rect(x*30, y*30, 30, 30))
 
     running = True
     while running:
@@ -115,11 +115,11 @@ while running:
         draw_walls(screen, game_map)
         pygame.display.flip()
 
-pygame.quit()
-sys.exit()
+    pygame.quit()
+    sys.exit()
 
-    pygame.display.flip()
-    clock.tick(30)
+pygame.display.flip()
+clock.tick(30)
 
 pygame.quit()
 
