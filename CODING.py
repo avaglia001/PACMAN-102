@@ -14,7 +14,7 @@ BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
 RED = (255, 0, 0)
 WHITE = (255, 255, 255)
-ORANGE=(255,125,100)
+ORANGE=(255,165,0)
 
 pacman_x = WIDTH // 2
 pacman_y = HEIGHT // 2
