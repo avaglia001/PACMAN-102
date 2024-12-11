@@ -8,7 +8,7 @@ pygame.init()
 WIDTH, HEIGHT = 600, 400
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pac-Man")
-
+TILE_SIZE=1
 
 BLACK = (0, 0, 0)
 YELLOW = (255, 255, 0)
@@ -24,7 +24,6 @@ pacman_x = WIDTH // 2
 pacman_y = HEIGHT // 2
 pacman_size = 20
 pacman_speed = 5
-
 
 
 ghost_x = random.randint(0, WIDTH)
@@ -178,8 +177,9 @@ while running:
     pacman_y
     if pacman_y<0 or pacman_y>HEIGHT:
         pacman_speed*=-1
-    
 
+    
+  
 
     font = pygame.font.Font(None, 36)
     score_text = font.render(f"Score: {score}", True, WHITE)
@@ -192,6 +192,6 @@ while running:
    
     pygame.display.flip()
     clock.tick(30)
-   
-
+    
 pygame.quit()
+
